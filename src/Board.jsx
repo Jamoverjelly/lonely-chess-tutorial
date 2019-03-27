@@ -2,6 +2,8 @@ import React from "react";
 import Square from "./Square";
 import Knight from "./Knight";
 import { moveKnight, canMoveKnight } from "./Game";
+import { DragDropContextProvider } from "react-dnd";
+import HTML5Backend from "react-dnd-html5-backend";
 
 /* Styling properties applied to the board element */
 const boardStyle = {
@@ -43,5 +45,9 @@ export default function Board({ knightPosition }) {
     squares.push(renderSquare(i, knightPosition));
   }
 
-  return <div style={boardStyle}>{squares}</div>;
+  return (
+    <DragDropContextProvider backend={HTML5Backend}>
+      <div style={boardStyle}>{squares}</div>
+    </DragDropContextProvider>
+  );
 }
