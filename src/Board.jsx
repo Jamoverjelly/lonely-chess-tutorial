@@ -1,6 +1,7 @@
 import React from "react";
 import Square from "./Square";
 import Knight from "./Knight";
+import { moveKnight, canMoveKnight } from "./Game";
 
 /* Styling properties applied to the board element */
 const boardStyle = {
@@ -24,10 +25,16 @@ function renderSquare(i, [knightX, knightY]) {
   const piece = isKnightHere ? <Knight /> : null;
 
   return (
-    <div key={i} style={squareStyle}>
+    <div key={i} style={squareStyle} onClick={() => handleSquareClick(x, y)}>
       <Square black={black}>{piece}</Square>
     </div>
   );
+}
+
+function handleSquareClick(toX, toY) {
+  if (canMoveKnight(toX, toY)) {
+    moveKnight(toX, toY);
+  }
 }
 
 export default function Board({ knightPosition }) {
