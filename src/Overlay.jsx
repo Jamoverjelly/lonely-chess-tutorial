@@ -1,4 +1,5 @@
 import React from "react";
+
 const Overlay = ({ color }) => {
   return (
     <div
@@ -15,4 +16,5 @@ const Overlay = ({ color }) => {
     />
   );
 };
+
 export default Overlay;

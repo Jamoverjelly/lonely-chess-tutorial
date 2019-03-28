@@ -4,11 +4,13 @@ import { Square } from "./Square";
 import { canMoveKnight, moveKnight } from "./Game";
 import ItemTypes from "./ItemTypes";
 import Overlay from "./Overlay";
+
 const boardSquareStyle = {
   position: "relative",
   width: "100%",
   height: "100%"
 };
+
 const BoardSquare = ({
   x,
   y,
@@ -27,6 +29,7 @@ const BoardSquare = ({
     </div>
   );
 };
+
 export default DropTarget(
   ItemTypes.KNIGHT,
   {
